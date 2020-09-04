@@ -8,8 +8,8 @@ import java.util.List;
 
 @Repository
 public interface AdRepository extends CrudRepository<Advertisement,Integer> {
-    @Override
-    Advertisement save(Advertisement advertisement);
+//    @Override
+//    Advertisement save(Advertisement advertisement);
 
     @Override
     void delete(Advertisement advertisement);
