@@ -1,4 +1,4 @@
-package com.BfDmichal.tradingplatform.domain;
+package com.BfDmichal.tradingplatform.domain.dto;
 
 
 public class UserDto {

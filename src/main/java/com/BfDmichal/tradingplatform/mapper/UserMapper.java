@@ -1,7 +1,7 @@
 package com.BfDmichal.tradingplatform.mapper;
 
 import com.BfDmichal.tradingplatform.domain.User;
-import com.BfDmichal.tradingplatform.domain.UserDto;
+import com.BfDmichal.tradingplatform.domain.dto.UserDto;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

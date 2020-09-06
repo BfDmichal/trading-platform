@@ -1,7 +1,6 @@
 package com.BfDmichal.tradingplatform.repositories;
 
 import com.BfDmichal.tradingplatform.domain.User;
-import com.BfDmichal.tradingplatform.domain.UserDto;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

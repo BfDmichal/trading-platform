@@ -1,7 +1,10 @@
 package com.BfDmichal.tradingplatform.controller;
 
-import com.BfDmichal.tradingplatform.domain.UserDto;
-import com.BfDmichal.tradingplatform.service.DbService;
+import com.BfDmichal.tradingplatform.controller.exception.UserNotFundException;
+import com.BfDmichal.tradingplatform.domain.dto.AdvertisementDto;
+import com.BfDmichal.tradingplatform.domain.dto.UserDto;
+import com.BfDmichal.tradingplatform.mapper.AdvertisementMapper;
+import com.BfDmichal.tradingplatform.service.UserService;
 import com.BfDmichal.tradingplatform.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -17,7 +20,9 @@ public class UserController {
     @Autowired
     private UserMapper userMapper;
     @Autowired
-    private DbService dbService;
+    private AdvertisementMapper advertisementMapper;
+    @Autowired
+    private UserService dbService;
 
     @RequestMapping(method = RequestMethod.GET, value = "/getUsers")
     public List<UserDto> getUsers() {
@@ -27,6 +32,10 @@ public class UserController {
     @RequestMapping(method = RequestMethod.GET, value = "/getUser")
     public UserDto getUser(@RequestParam int userId) throws UserNotFundException {
         return userMapper.mapToUserDto(dbService.getUserById(userId).orElseThrow(UserNotFundException::new));
+    }
+    @RequestMapping(method = RequestMethod.GET,value = "/getUserAdvertisements")
+    public List<AdvertisementDto> getListOfUserAdvertisements(@RequestParam int id) throws UserNotFundException{
+        return advertisementMapper.mapToAdvertisementDtoList(dbService.getMyAdvertisements(id));
     }
 
     @RequestMapping(method = RequestMethod.DELETE, value = "/deleteUser")
