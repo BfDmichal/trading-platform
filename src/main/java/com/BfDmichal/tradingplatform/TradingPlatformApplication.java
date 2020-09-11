@@ -11,6 +11,5 @@ public class TradingPlatformApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(TradingPlatformApplication.class, args);
 	}
-
 }
 

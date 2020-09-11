@@ -6,12 +6,14 @@ public class UserDto {
     private String email;
     private String password;
     private int phone;
+    private String role;
 
-    public UserDto(int id, String email, String password, int phone) {
+    public UserDto(int id, String email, String password, int phone, String role) {
         this.id = id;
         this.email = email;
         this.password = password;
         this.phone = phone;
+        this.role = role;
     }
 
     public int getId() {
@@ -28,5 +30,9 @@ public class UserDto {
 
     public int getPhone() {
         return phone;
+    }
+
+    public String getRole() {
+        return role;
     }
 }
