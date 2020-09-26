@@ -3,12 +3,22 @@ package com.BfDmichal.tradingplatform.domain;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name="ADVERTISEMENTS")
 public class Advertisement {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @OneToMany(
+            targetEntity = Photo.class,
+            mappedBy = "advertisement",
+            cascade = CascadeType.ALL,
+            fetch = FetchType.EAGER
+    )
+    private List<Photo> photos = new ArrayList<>();
     @ManyToOne()
     @JoinColumn(name = "SUBCATEGORIES_ID")
     private Subcategory subcategory;

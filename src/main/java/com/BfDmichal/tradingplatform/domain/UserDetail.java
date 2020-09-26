@@ -1,23 +1,25 @@
 package com.BfDmichal.tradingplatform.domain;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Component;
 
 import java.util.Collection;
 import java.util.Collections;
 
-public class UserDetail  implements UserDetails {
+public class UserDetail implements UserDetails {
 
     private User user;
 
-    public UserDetail(User  user) {
+    public UserDetail(User user) {
         this.user = user;
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Collections.singleton(new SimpleGrantedAuthority(user.getRole().toString()));
+        return Collections.singleton(new SimpleGrantedAuthority("ROLE_" + user.getRole().toString()));
     }
 
     @Override

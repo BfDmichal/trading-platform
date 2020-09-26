@@ -10,7 +10,7 @@ public class Subcategory {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @Column(name = "NAME", unique = true, nullable = false)
-    private String typeOfSubcategory;
+    private String name;
     @ManyToOne
     @JoinColumn(name = "CATEGORIES_ID")
     private Category category;
@@ -25,14 +25,14 @@ public class Subcategory {
     public Subcategory() {
     }
 
-    public Subcategory(String typeOfSubcategory, Category category) {
-        this.typeOfSubcategory = typeOfSubcategory;
+    public Subcategory(String name, Category category) {
+        this.name = name;
         this.category = category;
     }
 
-    public Subcategory(Long id, String typeOfSubcategory, List<Advertisement> advertisementList) {
+    public Subcategory(Long id, String name, List<Advertisement> advertisementList) {
         this.id = id;
-        this.typeOfSubcategory = typeOfSubcategory;
+        this.name = name;
         this.advertisementList = advertisementList;
     }
 
@@ -40,8 +40,8 @@ public class Subcategory {
         return id;
     }
 
-    public String getTypeOfSubcategory() {
-        return typeOfSubcategory;
+    public String getName() {
+        return name;
     }
 
     public Category getCategory() {
@@ -56,8 +56,8 @@ public class Subcategory {
         this.id = id;
     }
 
-    private void setTypeOfSubcategory(String typeOfSubcategory) {
-        this.typeOfSubcategory = typeOfSubcategory;
+    private void setName(String name) {
+        this.name = name;
     }
 
     private void setCategory(Category category) {

@@ -18,17 +18,17 @@ public class CategoryService {
     public List<Category> getCategories(){
         return repository.findAll();
     }
-    public Optional<Category> getCategoryById(int id){
+    public Optional<Category> getCategoryById(Long id){
         return repository.findById(id);
     }
-    public List<Subcategory> getAllSubcategoriesContainInThisCategory(final int id) throws CategoryNotFoundException {
+    public List<Subcategory> getAllSubcategoriesContainInThisCategory(final Long id) throws CategoryNotFoundException {
         Category category = repository.findById(id).orElseThrow(CategoryNotFoundException::new);
         return category.getSubcategories();
     }
     public Category saveCategory(final Category category){
         return repository.save(category);
     }
-    public void deleteCategory(final int id){
+    public void deleteCategory(final Long id){
         repository.deleteById(id);
     }
 }
