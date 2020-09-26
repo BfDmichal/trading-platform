@@ -7,6 +7,7 @@ import com.BfDmichal.tradingplatform.mapper.AdvertisementMapper;
 import com.BfDmichal.tradingplatform.mapper.PhotoMapper;
 import com.BfDmichal.tradingplatform.service.AdService;
 //import com.BfDmichal.tradingplatform.service.PhotoService;
+import com.BfDmichal.tradingplatform.service.PhotoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,8 +22,8 @@ public class AdvertisementController {
     private AdService service;
     @Autowired
     private AdvertisementMapper mapper;
-//    @Autowired
-//    private PhotoService photoService;
+    @Autowired
+    private PhotoService photoService;
     @Autowired
     private PhotoMapper photoMapper;
 
@@ -50,15 +51,15 @@ public class AdvertisementController {
     public AdvertisementDto updateAdvertisement(@RequestBody AdvertisementDto advertisementDto) {
         return mapper.mapToAdvertisementDto(service.saveAdvertisement(mapper.mapToAdvertisement(advertisementDto)));
     }
-//
-//    @RequestMapping(method = RequestMethod.GET, value = "/getImage")
-//    public Map getImage() throws Exception {
-//        return photoService.getImage();
-//    }
-//
-//    @RequestMapping(method = RequestMethod.POST, value = "/uploadImage")
-//    public String uploadImage(@RequestBody PhotoDto photoDto) throws Exception {
-//        photoService.saveImageInDatabase(photoMapper.mapToPhoto(photoDto));
-//        return String.valueOf(photoService.uploadImage());
-//    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/getImage")
+    public Map getImage() throws Exception {
+        return photoService.getImage();
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "/uploadImage")
+    public String uploadImage(@RequestBody PhotoDto photoDto) throws Exception {
+        photoService.saveImageInDatabase(photoMapper.mapToPhoto(photoDto));
+        return String.valueOf(photoService.uploadImage());
+    }
 }
