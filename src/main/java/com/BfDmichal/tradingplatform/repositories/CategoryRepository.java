@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface CategoryRepository extends CrudRepository<Category,Integer> {
+public interface CategoryRepository extends CrudRepository<Category,Long> {
 
     @Override
     Category save(Category category);
@@ -17,8 +17,8 @@ public interface CategoryRepository extends CrudRepository<Category,Integer> {
     List<Category> findAll();
 
     @Override
-    Optional<Category> findById(Integer integer);
+    Optional<Category> findById(Long id);
 
     @Override
-    void deleteById(Integer integer);
+    void deleteById(Long id);
 }

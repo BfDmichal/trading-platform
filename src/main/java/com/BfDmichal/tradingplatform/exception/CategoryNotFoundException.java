@@ -1,4 +1,4 @@
-package com.BfDmichal.tradingplatform.controller.exception;
+package com.BfDmichal.tradingplatform.exception;
 
 public class CategoryNotFoundException extends Exception{
 }

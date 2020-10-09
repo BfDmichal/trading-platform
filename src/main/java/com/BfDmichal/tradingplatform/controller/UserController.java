@@ -1,6 +1,6 @@
 package com.BfDmichal.tradingplatform.controller;
 
-import com.BfDmichal.tradingplatform.controller.exception.UserNotFundException;
+import com.BfDmichal.tradingplatform.exception.UserNotFundException;
 import com.BfDmichal.tradingplatform.domain.dto.AdvertisementDto;
 import com.BfDmichal.tradingplatform.domain.dto.UserDto;
 import com.BfDmichal.tradingplatform.mapper.AdvertisementMapper;
@@ -50,7 +50,6 @@ public class UserController {
 
     @RequestMapping(method = RequestMethod.POST, value = "/createUser", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void createUser(@RequestBody UserDto userDto) {
-        System.out.println(userDto);
         dbService.saveUser(userMapper.mapToUser(userDto));
     }
 }

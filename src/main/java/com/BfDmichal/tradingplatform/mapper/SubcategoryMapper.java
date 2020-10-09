@@ -17,7 +17,7 @@ public class SubcategoryMapper {
         return new Subcategory(dto.getId(),dto.getType(),mapper.mapToAdvertisementList(dto.getAdvertisementDtoList()));
     }
     public SubcategoryDto mapToSubcategoryDto(Subcategory subcategory){
-        return new SubcategoryDto(subcategory.getId(),subcategory.getTypeOfSubcategory(),mapper.mapToAdvertisementDtoList(subcategory.getAdvertisementList()));
+        return new SubcategoryDto(subcategory.getId(),subcategory.getName(),mapper.mapToAdvertisementDtoList(subcategory.getAdvertisementList()));
     }
     public List<Subcategory> mapToSubcategoryList(List<SubcategoryDto> subcategoryDtoList){
         return subcategoryDtoList.stream()

@@ -3,12 +3,22 @@ package com.BfDmichal.tradingplatform.domain;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name="ADVERTISEMENTS")
 public class Advertisement {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @OneToMany(
+            targetEntity = Photo.class,
+            mappedBy = "advertisement",
+            cascade = CascadeType.ALL,
+            fetch = FetchType.EAGER
+    )
+    private List<Photo> photos = new ArrayList<>();
     @ManyToOne()
     @JoinColumn(name = "SUBCATEGORIES_ID")
     private Subcategory subcategory;
@@ -41,6 +51,10 @@ public class Advertisement {
         return id;
     }
 
+    public List<Photo> getPhotos() {
+        return photos;
+    }
+
     public Subcategory getSubcategory() {
         return subcategory;
     }
@@ -63,33 +77,5 @@ public class Advertisement {
 
     public User getUser() {
         return user;
-    }
-
-    private void setId(Long id) {
-        this.id = id;
-    }
-
-    private void setCategory(Subcategory subcategory) {
-        this.subcategory = subcategory;
-    }
-
-    private void setTitle(String title) {
-        this.title = title;
-    }
-
-    private void setDescription(String description) {
-        this.description = description;
-    }
-
-    private void setDuration(LocalDate duration) {
-        this.duration = duration;
-    }
-
-    private void setPrice(BigDecimal price) {
-        this.price = price;
-    }
-
-    private void setUser(User user) {
-        this.user = user;
     }
 }

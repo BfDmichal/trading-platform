@@ -1,12 +1,9 @@
 package com.BfDmichal.tradingplatform.domain;
 
-import lombok.*;
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Setter(AccessLevel.PRIVATE)
 @Entity
 @Table(name = "USERS")
 public class User {
@@ -26,15 +23,22 @@ public class User {
             fetch = FetchType.EAGER
     )
     private List<Advertisement> advertisementList = new ArrayList<>();
+    @Column(name = "ROLE", nullable = false)
+    private Role role;
 
-    public User(int id, String email, String password, int phone) {
+    public User(int id, String email, String password, int phone, Role role) {
         this.id = id;
         this.email = email;
         this.password = password;
         this.phone = phone;
+        this.role = role;
     }
 
     public User() {
+    }
+
+    public Role getRole() {
+        return role;
     }
 
     public int getId() {
@@ -57,3 +61,4 @@ public class User {
         return advertisementList;
     }
 }
+

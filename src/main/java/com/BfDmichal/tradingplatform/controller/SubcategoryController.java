@@ -1,8 +1,6 @@
 package com.BfDmichal.tradingplatform.controller;
 
-import com.BfDmichal.tradingplatform.controller.exception.SubcategoryNotFoundException;
-import com.BfDmichal.tradingplatform.domain.Advertisement;
-import com.BfDmichal.tradingplatform.domain.Subcategory;
+import com.BfDmichal.tradingplatform.exception.SubcategoryNotFoundException;
 import com.BfDmichal.tradingplatform.domain.dto.AdvertisementDto;
 import com.BfDmichal.tradingplatform.domain.dto.SubcategoryDto;
 import com.BfDmichal.tradingplatform.mapper.AdvertisementMapper;
