@@ -51,6 +51,10 @@ public class Advertisement {
         return id;
     }
 
+    public List<Photo> getPhotos() {
+        return photos;
+    }
+
     public Subcategory getSubcategory() {
         return subcategory;
     }
@@ -73,33 +77,5 @@ public class Advertisement {
 
     public User getUser() {
         return user;
-    }
-
-    private void setId(Long id) {
-        this.id = id;
-    }
-
-    private void setCategory(Subcategory subcategory) {
-        this.subcategory = subcategory;
-    }
-
-    private void setTitle(String title) {
-        this.title = title;
-    }
-
-    private void setDescription(String description) {
-        this.description = description;
-    }
-
-    private void setDuration(LocalDate duration) {
-        this.duration = duration;
-    }
-
-    private void setPrice(BigDecimal price) {
-        this.price = price;
-    }
-
-    private void setUser(User user) {
-        this.user = user;
     }
 }

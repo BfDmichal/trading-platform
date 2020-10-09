@@ -1,7 +1,5 @@
 package com.BfDmichal.tradingplatform.domain;
 
-
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +23,7 @@ public class User {
             fetch = FetchType.EAGER
     )
     private List<Advertisement> advertisementList = new ArrayList<>();
+    @Column(name = "ROLE", nullable = false)
     private Role role;
 
     public User(int id, String email, String password, int phone, Role role) {
@@ -62,3 +61,4 @@ public class User {
         return advertisementList;
     }
 }
+

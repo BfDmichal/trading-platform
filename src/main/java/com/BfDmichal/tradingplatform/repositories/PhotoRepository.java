@@ -5,6 +5,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface PhotoRepository extends CrudRepository<Photo,Integer> {
@@ -12,7 +13,12 @@ public interface PhotoRepository extends CrudRepository<Photo,Integer> {
     Photo save(Photo photo);
 
     @Override
-    List<Photo> findAll();
+    Optional<Photo> findById(Integer integer);
+
+    @Override
+    Iterable<Photo> findAllById(Iterable<Integer> integers);
+
+  //  Iterable<Integer> findByAdvertisement_Id(Iterable<Integer> advertisementId);
 
     @Override
     void deleteById(Integer integer);

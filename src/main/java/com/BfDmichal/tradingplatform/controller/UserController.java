@@ -1,6 +1,6 @@
 package com.BfDmichal.tradingplatform.controller;
 
-import com.BfDmichal.tradingplatform.controller.exception.UserNotFundException;
+import com.BfDmichal.tradingplatform.exception.UserNotFundException;
 import com.BfDmichal.tradingplatform.domain.dto.AdvertisementDto;
 import com.BfDmichal.tradingplatform.domain.dto.UserDto;
 import com.BfDmichal.tradingplatform.mapper.AdvertisementMapper;

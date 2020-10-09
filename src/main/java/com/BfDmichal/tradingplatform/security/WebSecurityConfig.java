@@ -47,6 +47,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/v1/deleteSubcategory").hasRole("ADMIN")
                 .antMatchers("/v1/createSubcategory").hasRole("ADMIN")
                 .antMatchers("/v1/updateSubcategory").hasRole("ADMIN")
+                .antMatchers("/v1/forgetPassword").permitAll()
                 .and()
                 .formLogin().permitAll();
     }

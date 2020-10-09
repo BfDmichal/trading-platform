@@ -1,6 +1,6 @@
 package com.BfDmichal.tradingplatform.service;
 
-import com.BfDmichal.tradingplatform.controller.exception.CategoryNotFoundException;
+import com.BfDmichal.tradingplatform.exception.CategoryNotFoundException;
 import com.BfDmichal.tradingplatform.domain.Category;
 import com.BfDmichal.tradingplatform.domain.Subcategory;
 import com.BfDmichal.tradingplatform.repositories.CategoryRepository;
